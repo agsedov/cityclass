@@ -5,7 +5,6 @@ from PIL import Image
 
 def split_to_tiles(save_path, input, size):
     im = Image.open(input)
-    print("!!!1");
     imgwidth, imgheight = im.size
 
     for i in range(0,imgheight,size):
