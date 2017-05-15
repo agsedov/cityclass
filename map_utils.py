@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from PIL import Image, ImageChops
-
+import numpy as np
 
 class TileProvider():
     def __init__(self, input_file_name, square_size):
@@ -8,12 +8,15 @@ class TileProvider():
         self.square_size = square_size
 
 
-    def load_tile(x, y):
+    def load_tile(self, x, y):
         tile_box = (y, x, y + self.square_size, x + self.square_size)
         tile = self.map.crop(tile_box)
         
         data = np.asarray(tile, dtype="int32")
         return data
+
+    def destruct(self):
+        self.map.close()
 
 
 class Visualizer():
@@ -26,7 +29,6 @@ class Visualizer():
         cover = self.covers[color]
         colorized = ImageChops.add(image, cover, 2.0)
         return colorized
-
 
     def run(self, input_file_name, output_file_name, tile_labels):
         original_image = Image.open(input_file_name)
