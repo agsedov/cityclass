@@ -6,7 +6,7 @@ square_size = 150 		# Размер квадрата из файла, в пикс
 map_source = "./training/map.jpg"
 tiles = "./training/tiles"
 
-training_count = 80 	# Cколько примеров использовать в обучении
+training_count = 150 	# Cколько примеров использовать в обучении
 
 classes = { 
 	'0': 'Жилой район', 
