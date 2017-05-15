@@ -1,18 +1,22 @@
 # -*- coding: utf-8 -*-
+
+from numpy import asarray
 from PIL import Image, ImageChops
 import numpy as np
 
-class TileProvider():
+class TileDataProvider():
     def __init__(self, input_file_name, square_size):
         self.map = Image.open(input_file_name)
         self.square_size = square_size
 
 
-    def load_tile(self, x, y):
-        tile_box = (y, x, y + self.square_size, x + self.square_size)
+    def load_tile_data(self, x, y):
+        tile_box = (y * self.square_size, x * self.square_size, 
+                    (y + 1) * self.square_size, (x + 1) * self.square_size)
+
         tile = self.map.crop(tile_box)
         
-        data = np.asarray(tile, dtype="int32")
+        data = asarray(tile, dtype="int32")
         return data
 
     def destruct(self):
@@ -22,7 +26,7 @@ class TileProvider():
 class Visualizer():
     def __init__(self, square_size, color_map):
         self.square_size = square_size
-        self.covers = [Image.new("RGB", (square_size, square_size), color) for color in color_map]
+        self.covers = { label: Image.new("RGB", (square_size, square_size), color) for (label, color) in color_map.items() }
 
 
     def colorize(self, image, color):

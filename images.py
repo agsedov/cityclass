@@ -13,8 +13,8 @@ def load_image(filename) :
     return data
 
 def get_filename_for_tile(x, y):
-	print(cnf.tiles + "/tile-%d-%d.png" % (x, y))
-	return cnf.tiles + "/tile-%d-%d.png" % (x, y)
+    print(cnf.tiles + "/tile-%d-%d.png" % (x, y))
+    return cnf.tiles + "/tile-%d-%d.png" % (x, y)
 
 def load_tile(x, y):
-	return load_image(get_filename_for_tile(x, y))
+    return load_image(get_filename_for_tile(x, y))
