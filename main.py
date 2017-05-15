@@ -5,7 +5,7 @@ import config as cnf
 from keras.optimizers import SGD
 from images import load_tile
 import matplotlib.pyplot as plt
-from map_utils import TileProvider
+from map_utils import TileDataProvider
 from model import init_model
 from numpy import genfromtxt
 import sys
@@ -15,10 +15,10 @@ if(len(sys.argv)>1 and sys.argv[1]=="train"):
     
     data = np.zeros((marking.shape[0],cnf.square_size, cnf.square_size, 3), dtype=np.float)
     
-    tlp = TileProvider(cnf.map_source, cnf.square_size)
+    tlp = TileDataProvider(cnf.map_source, cnf.square_size)
     
     for x in range(0,marking.shape[0]):
-        im = tlp.load_tile(marking[x][0],marking[x][1])
+        im = tlp.load_tile_data(marking[x][0],marking[x][1])
         data[x] = im
     
     tlp.destruct()
