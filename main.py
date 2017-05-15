@@ -37,7 +37,7 @@ def split_markup(markup):
     np.random.shuffle(test)
     return np.concatenate((train, test),axis = 0)
 
-split_markup(markup)
+markup = split_markup(markup)
 
 data = np.zeros((markup.shape[0],cnf.square_size, cnf.square_size, 3), dtype=np.float)
 
