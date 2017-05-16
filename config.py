@@ -5,6 +5,7 @@
 map_source = "./training/map.jpg"
 tiles = "./training/tiles"
 
+labels_source = "./training/labels.csv"
 colorized_map_target = "./training/colorized_map.jpg"
 covering_target = "./training/covering.png"
 
