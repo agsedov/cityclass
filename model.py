@@ -21,7 +21,7 @@ def init_model():
     
     model.add(Flatten()) #совмещение трёх слоев (надо проверить как оно точно происходит)
     model.add(Dense(512, kernel_regularizer=regularizers.l2(0.01), activation='relu')) #связный слой с 512 нейронами и регуляризацией
-    model.add(Dropout(0.25))
+    model.add(Dropout(0.35))
     model.add(Dense(5, activation='softmax'))#выходной слой
     
     return model

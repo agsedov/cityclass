@@ -60,7 +60,7 @@ if(len(sys.argv)>1 and sys.argv[1]=="train"):
 
     sgd = SGD(lr=0.005, decay=1e-6, momentum=0.9, nesterov=True)
     model.compile(loss='categorical_crossentropy', optimizer=sgd)
-    history = model.fit(x_train, y_train, batch_size=20, epochs=100,
+    history = model.fit(x_train, y_train, batch_size=20, epochs=300,
         validation_data=(x_test, y_test))
     print(history.history.keys())
     model.save_weights('./model_weights.h5')
