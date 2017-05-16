@@ -1,11 +1,14 @@
+# -*- coding: utf-8 -*-
+
+#import keras
 import numpy as np
-import keras
+import matplotlib.pyplot as plt
+import sys
+
 import config as cnf
 from images import load_tile
-import matplotlib.pyplot as plt
 from map_utils import TileDataProvider
 from model import init_model
-import sys
 
 model = init_model()
 model.load_weights('./model_weights.h5')
